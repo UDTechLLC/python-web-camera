@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}
+
+<title>Start!</title>
+
+{% endblock %}
+{% block body %}
+    <script type="text/javascript" src="/static/js/led.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <h1>Настройка процесса снятия фотографий</h1>
+    <div style="width:100%">
+        <form action = "/detect-package" method = "GET">
+            <label for="width">Длина коробки (в мм) </label>
+            <div class="row">
+                <div class="form-group col col-sm-4">
+                    <input id="width" type="text" name = "width" class="form-control" value="100" required />
+                </div>
+                 <div class="form-group col col-sm-2">
+                    <input type = "submit" value = "Старт" class="btn btn-primary" />
+                 </div>
+                 <div class="form-group col col-sm-6">
+                     <div class="row">
+                         <div class="col col-sm-4">
+                            <button type="button" class="btn btn-secondary action_led enable" data-url="/enable-led" data-value="=">Включить свет</button>
+                         </div>
+                         <div class="col col-sm-4 slider-wrapper">
+                            <div id="slider-bright-led"></div>
+                            <input type="text" id="amount-led" readonly value="{{ led }}">
+                         </div>
+                         <div class="col col-sm-4">
+                             <button type="button" class="btn btn-danger action_led" data-url="/disable-led">Выключить свет</button>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </form>
+
+        <!-- <a href="/detect-package" class="btn btn-primary">Start</a> -->
+    </div>
+    <div style="width:100%">
+        <img src="{{ url_for('video_feed') }}" style="width:50%;float:left">
+        <img src="{{ url_for('platform_feed') }}" style="width:50%;">
+    </div>
+
+
+{% endblock %}

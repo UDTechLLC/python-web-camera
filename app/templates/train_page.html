@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}
+
+<title>Loading!</title>
+
+{% endblock %}
+{% block body %}
+    <script type="text/javascript" src="/static/js/train.js"></script>
+    <h1>Тренировка модели</h1>
+
+    <h2 class="title-operation">current operation = <span>{{ dsw.current_operation }}</span></h2>
+
+    <div class="log_area">
+        <div class="progress-bar bg-success  progress-bar-striped progress-bar-animated" aria-valuemin="0" aria-valuenow="0" aria-valuemax="100"></div>
+        <p class="status"></p>
+    </div>
+
+{% endblock %}

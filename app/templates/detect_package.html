@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}
+
+<title>Detecting process!</title>
+
+{% endblock %}
+{% block body %}
+    <script type="text/javascript" src="/static/js/detect_images.js"></script>
+    <h1>Процесс фотографирования</h1>
+
+    <div class="donut-abs">
+      <div class="circle"></div>
+      <div class="spinner"></div>
+    </div>
+
+    <div style="width:100%">
+        <img src="{{ url_for('video_feed') }}" style="width:50%;float:left;">
+        <img src="{{ url_for('platform_feed') }}" style="width:50%;">
+    </div>
+
+    <div class="modal" id="modalChange" tabindex="-1" role="dialog" aria-labelledby="Change Side Package" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Переверните коробку</h5>
+          </div>
+          <div class="modal-body">
+              <p>Необходимо перевернуть коробку!</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
